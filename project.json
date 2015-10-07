@@ -1,0 +1,30 @@
+{
+	"authors": [
+		"Erlimar Silva Campos"
+	],
+	"description": "Erlimar Personal Blog",
+
+	"webroot": "wwwroot",
+	"version": "0.0.1-*",
+
+	"dependencies": {
+		"Microsoft.AspNet.Diagnostics": "1.0.0-beta7",
+		"Microsoft.AspNet.Server.IIS": "1.0.0-beta7",
+		"Microsoft.AspNet.Server.WebListener": "1.0.0-beta7",
+		"Microsoft.AspNet.StaticFiles": "1.0.0-beta7",
+		"Microsoft.AspNet.Mvc": "6.0.0-beta7",
+		"EntityFramework.SQLite": "7.0.0-beta7",
+		"EntityFramework.Commands": "7.0.0-beta7",
+		"Microsoft.Dnx.Runtime.Abstractions": "1.0.0-beta7"
+	},
+	
+	"frameworks": {
+		"dnx451": {},
+		"dnxcore50": {}
+	},
+	
+	"commands": {
+		"web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000",
+		"ef": "EntityFramework.Commands"
+	}
+}
