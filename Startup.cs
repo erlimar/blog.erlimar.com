@@ -9,10 +9,16 @@ public class Startup
 	public IServiceProvider ConfigureServices(IServiceCollection services)
 	{
 		services
+#if DNXCORE50
 			.AddMvcCore()
 			.AddAuthorization()
 			.AddFormatterMappings(m => m.SetMediaTypeMappingForFormat("js", new MediaTypeHeaderValue("application/json")))
 			.AddJsonFormatters(j => j.Formatting = Formatting.Indented)
+#else
+			.AddMvc()
+			.AddFormatterMappings(m => m.SetMediaTypeMappingForFormat("js", new MediaTypeHeaderValue("application/json")))
+			.AddJsonOptions(opt => opt.SerializerSettings.Formatting = Formatting.Indented)
+#endif
 		;
 		
 		return services.BuildServiceProvider();
