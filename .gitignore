@@ -1,0 +1,11 @@
+[Bb]in/
+[Oo]ut/
+.vs/
+artifacts/
+[Pp]roperties/
+
+blog.db
+project.lock.json
+
+*.suo
+*.user
