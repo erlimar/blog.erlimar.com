@@ -1,2 +1,2 @@
 [config]
-project = blog.erlimar.com
+command = deploy.cmd
