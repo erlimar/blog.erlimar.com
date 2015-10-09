@@ -38,7 +38,10 @@ public class Startup
 	public void Configure(IApplicationBuilder application, IHostingEnvironment env, ILoggerFactory loggerfactory)
 	{
 		loggerfactory.AddConsole(LogLevel.Verbose);
-		loggerfactory.AddEventLog();
+		
+#if DNX451		
+		loggerfactory.AddEventLog(LogLevel.Verbose);
+#endif
 		
 		var log = loggerfactory.CreateLogger(this.GetType().Name);
 		
