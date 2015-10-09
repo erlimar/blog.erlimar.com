@@ -38,6 +38,7 @@ public class Startup
 	public void Configure(IApplicationBuilder application, IHostingEnvironment env, ILoggerFactory loggerfactory)
 	{
 		loggerfactory.AddConsole(LogLevel.Verbose);
+		loggerfactory.AddEventLog();
 		
 		var log = loggerfactory.CreateLogger(this.GetType().Name);
 		
