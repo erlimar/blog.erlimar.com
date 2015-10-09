@@ -3,7 +3,8 @@
 :: ----------------------
 :: Site Deploy DNX Config
 :: ----------------------
-set SITE_PROJECT_PATH=blog.erlimar.com\project.json
+set SITE_PROJECT_PATH=blog.erlimar.com
+set SITE_PROJECT_FILE=%SITE_PROJECT_PATH%\project.json
 set SCM_DNU_RESTORE_OPTIONS=--no-cache
 set SCM_DNU_PUBLISH_OPTIONS=--no-source --configuration Release
 set SCM_DNX_VERSION=1.0.0-beta7
@@ -104,14 +105,14 @@ call %DNX_RUNTIME%\bin\dnu restore "%DEPLOYMENT_SOURCE%" %SCM_DNU_RESTORE_OPTION
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 4. Run DNU Bundle
-call %DNX_RUNTIME%\bin\dnu publish "D:\home\site\repository\%SITE_PROJECT_PATH%" --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
+call %DNX_RUNTIME%\bin\dnu publish "D:\home\site\repository\%SITE_PROJECT_FILE%" --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 5. Deploy Database if exists
 IF EXIST "deploy-db.cmd" call deploy-db.cmd
 
 :: 6. KuduSync
-call %KUDU_SYNC_CMD% -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+call %KUDU_SYNC_CMD% -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd;deploy-db.cmd"
 IF !ERRORLEVEL! NEQ 0 goto error
 )
 
