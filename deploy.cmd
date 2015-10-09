@@ -6,7 +6,7 @@
 set SITE_PROJECT_PATH=blog.erlimar.com
 set SITE_PROJECT_FILE=%SITE_PROJECT_PATH%\project.json
 set SCM_DNU_RESTORE_OPTIONS=--no-cache
-set SCM_DNU_PUBLISH_OPTIONS=--no-source --configuration Release --native
+set SCM_DNU_PUBLISH_OPTIONS=--no-source --configuration Release
 set SCM_DNX_VERSION=1.0.0-beta7
 set SCM_DNX_ARCH=x86
 set SCM_DNX_RUNTIME=CLR
