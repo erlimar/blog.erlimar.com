@@ -37,7 +37,7 @@ namespace blog.erlimar.com.Migrations
                 {
                     table.PrimaryKey("PK_Post", x => x.post_id);
                     table.ForeignKey(
-                        name: "FK_Post_Blog_Blogid",
+                        name: "FK_Post_Blog_BlogId",
                         column: x => x.blog_id,
                         principalTable: "blogs",
                         principalColumn: "blog_id");

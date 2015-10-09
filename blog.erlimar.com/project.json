@@ -14,8 +14,33 @@
 		"Microsoft.AspNet.StaticFiles": "1.0.0-beta7",
 		"Microsoft.AspNet.Mvc": "6.0.0-beta7",
 		"EntityFramework.SQLite": "7.0.0-beta7",
+		"EntityFramework.SqlServer": "7.0.0-beta7",
 		"EntityFramework.Commands": "7.0.0-beta7",
-		"Microsoft.Dnx.Runtime.Abstractions": "1.0.0-beta7"
+		"Microsoft.Dnx.Runtime.Abstractions": "1.0.0-beta7",
+		"Microsoft.Framework.Logging.Console": "1.0.0-beta7"
+	},
+	
+	"compilationOptions": {
+		"allowUnsafe": false,
+		"languageVersion": "csharp6"
+	},
+	
+	"configurations": {
+		"Debug": {
+			"compilationOptions": {
+				"define": [
+					"DEBUG",
+					"TRACE"
+				],
+				"warningsAsErrors": false
+			}	
+		},
+		"Release": {
+			"compilationOptions": {
+				"optimize": true,
+				"warningsAsErrors": true
+			}
+		}
 	},
 	
 	"frameworks": {

@@ -1,0 +1,18 @@
+@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
+
+:: ---------------------------
+:: Entity Framework Migrations
+:: ---------------------------
+
+DATE /T > MIGRATIONS.TXT && TIME /T >> MIGRATIONS.TXT
+
+echo SITE_PROJECT_PATH = %SITE_PROJECT_PATH%
+echo SCM_DNU_RESTORE_OPTIONS = %SCM_DNU_RESTORE_OPTIONS%
+echo SCM_DNU_PUBLISH_OPTIONS = %SCM_DNU_PUBLISH_OPTIONS%
+echo SCM_DNX_VERSION = %SCM_DNX_VERSION%
+echo SCM_DNX_ARCH = %SCM_DNX_ARCH%
+echo SCM_DNX_RUNTIME = %SCM_DNX_RUNTIME%
+echo SCM_DNVM_INSTALL_OPTIONS = %SCM_DNVM_INSTALL_OPTIONS%
+echo DNX_RUNTIME = %DNX_RUNTIME%
+
+call %DNX_RUNTIME%\bin\dnx ef database update

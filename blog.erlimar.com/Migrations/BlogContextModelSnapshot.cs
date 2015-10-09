@@ -38,17 +38,15 @@ namespace blog.erlimar.com.Migrations
                         .ValueGeneratedOnAdd()
                         .Annotation("Relational:ColumnName", "post_id");
 
-                    b.Property<int>("Blogid")
+                    b.Property<int>("BlogId")
                         .Annotation("Relational:ColumnName", "blog_id");
 
                     b.Property<string>("Content")
                         .Required();
 
-                    b.Property<DateTime>("Created")
-                        .ValueGeneratedOnAdd();
+                    b.Property<DateTime>("Created");
 
-                    b.Property<DateTime>("LastUpdated")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("LastUpdated");
 
                     b.Property<string>("Title")
                         .Required();
@@ -62,7 +60,7 @@ namespace blog.erlimar.com.Migrations
                 {
                     b.Reference("Models.Blog")
                         .InverseCollection()
-                        .ForeignKey("Blogid");
+                        .ForeignKey("BlogId");
                 });
         }
     }
